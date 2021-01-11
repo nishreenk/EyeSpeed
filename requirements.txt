@@ -1,0 +1,6 @@
+pandas
+opencv-python
+numpy
+tqdm
+matplotlib
+tensorflow==2.1.0
