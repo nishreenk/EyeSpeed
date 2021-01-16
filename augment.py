@@ -98,9 +98,8 @@ def save_aug_images(src, dst, folds):
     files = [f for f in files if f.endswith('.jpg')]
     os.makedirs(dst, exist_ok=True)
 
-    aug = Augment(translate_range=(-0.1, 0.1),
-                  rotation_range=(-90, 90),
-                  flip_fraction=0.5)
+    aug = Augment(translate_range=(-0.05, 0.05),
+                  rotation_range=(-5, 5))
 
     for fold in range(folds):
         for file in files:
