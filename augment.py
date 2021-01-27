@@ -98,8 +98,9 @@ def save_aug_images(src, dst, folds):
     files = [f for f in files if f.endswith('.jpg')]
     os.makedirs(dst, exist_ok=True)
 
-    aug = Augment(translate_range=(-0.05, 0.05),
-                  rotation_range=(-5, 5))
+    aug = Augment(translate_range=(-0.1, 0.1),
+                  rotation_range=(-15, 15),
+                  flip_fraction=0.5)
 
     for fold in range(folds):
         for file in files:
@@ -120,7 +121,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--src', default='data/train')
     parser.add_argument('--dst', default='data/train_aug')
-    parser.add_argument('--folds', default=5, type=int)
+    parser.add_argument('--folds', default=10, type=int)
     args = parser.parse_args()
 
     save_aug_images(args.src, args.dst, args.folds)
